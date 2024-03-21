@@ -1,0 +1,124 @@
+.section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 50px;
+  min-height: 100vh;
+}
+
+.section__details {
+  display: flex;
+  padding: 100px 0;
+}
+
+.section__title {
+  font-size: 30px;
+  color: white;
+  line-height: 40px;
+  width: 20%;
+  font-weight: 400;
+}
+
+.section__description {
+  font-size: 30px;
+  color: white;
+  line-height: 40px;
+  width: 55%;
+  font-weight: 400;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #141414;
+}
+
+.top {
+  display: flex;
+}
+
+.imgWrapper {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  background: url("/grids.png") repeat;
+  z-index: 150; /* Ensure the overlay is on top of the image */
+}
+.container:hover .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  background: url("/red.svg") repeat;
+  z-index: 150; /* Ensure the overlay is on top of the image */
+  transition-duration: 0.3s;
+}
+
+.imgContainer {
+  width: 90%;
+  height: 400px;
+  position: relative;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.date {
+  font-size: 12px;
+  transform: rotate(270deg);
+  margin: auto;
+}
+
+.title {
+  font-size: 24px;
+}
+.titleContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: -10px;
+  transition: transform 0.3s ease;
+  color: #5b5b5b;
+}
+.container:hover .titleContainer {
+  transform: translateX(15px); /* Move container to the right on hover */
+  color: white; /* Change text color on hover */
+}
+
+.hexagon {
+  width: 20px; /* Adjust the size of the hexagon */
+  height: auto;
+  margin-right: 10px; /* Adjust the spacing between the hexagon and the title */
+}
+
+.desc {
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: gray;
+}
+
+.bottom {
+  transition: transform 0.3s ease;
+  color: #5b5b5b;
+}
+
+.container:hover .bottom {
+  transform: translateX(15px); /* Move container to the right on hover */
+  color: white; /* Change text color on hover */
+}
+
+.container:hover {
+  border: 1px solid #ccc;
+  transition: transform 2s ease;
+}

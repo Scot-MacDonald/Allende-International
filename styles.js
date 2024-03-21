@@ -37,7 +37,7 @@ body {
 
   a {
     text-decoration: none;
-    display: inline-block;
+   
     color: inherit;
     border: none;
     
@@ -47,37 +47,12 @@ body {
     color: inherit;
   }
 
-  form {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    align-items: center;
-  }
 
-  ul {
-    list-style-type: none;
-   
-    gap: 1rem;
-    justify-items: center;
-    padding: 0;
-  }
 
-  li {
-    width: 100%;
-  }
 
-  li a {
-    width: 100%;
-  }
 
-  div:has(h1) {
-    display: flex;
-    flex-direction: column;
 
-  }
+  
 
-  div:has(h1) button {
-    width: fit-content;
-    align-self: center;
-  }
+
 `;

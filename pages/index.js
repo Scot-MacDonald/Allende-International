@@ -3,6 +3,8 @@ import PostForm from "@/components/PostForm";
 import PostList from "@/components/PostList";
 import ArbeitList from "@/components/ArbeitList";
 import Intro from "@/components/Intro";
+import EventList from "@/components/EventList";
+import DateList from "@/components/DateList";
 
 export default function HomePage() {
   const { mutate } = useSWR("/api/posts");
@@ -27,11 +29,13 @@ export default function HomePage() {
   }
 
   return (
-    <>
+    <div className="px-10">
       {/* <PostForm onSubmit={handleSubmit} value="" /> */}
       <Intro />
       <PostList />
       <ArbeitList />
-    </>
+      <EventList />
+      <DateList />
+    </div>
   );
 }
