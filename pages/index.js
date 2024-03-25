@@ -29,13 +29,17 @@ export default function HomePage() {
   }
 
   return (
-    <div className="px-10">
-      {/* <PostForm onSubmit={handleSubmit} value="" /> */}
-      <Intro />
-      <PostList />
-      <ArbeitList />
-      <EventList />
-      <DateList />
-    </div>
+    <>
+      <div className="px-10">
+        {/* <PostForm onSubmit={handleSubmit} value="" /> */}
+        <Intro />
+        <PostList />
+        <ArbeitList />
+        <EventList />
+      </div>
+      <div>
+        <DateList />
+      </div>
+    </>
   );
 }

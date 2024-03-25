@@ -44,6 +44,7 @@ export default function ArbeitList() {
                 <h1 className={styles.title}>{arbeit.title}</h1>
               </div>
               <div className={styles.top}>
+                <span className={styles.date}>18-10-2024</span>
                 <div className={styles.imgContainer}>
                   {arbeit.img && (
                     <div className={styles.imgWrapper}>

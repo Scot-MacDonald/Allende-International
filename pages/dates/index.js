@@ -1,6 +1,4 @@
 import useSWR from "swr";
-import ArbeitForm from "@/components/ArbeitForm";
-import PostList from "@/components/PostList";
 import DateList from "@/components/DateList";
 
 export default function DatePage() {

@@ -1,17 +1,19 @@
 import useSWR from "swr";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "@/styles/arbeitList.module.css";
+import styles from "@/styles/dateList.module.css";
+import { useState } from "react";
 
 export default function DateList() {
   const { data, isLoading } = useSWR("/api/dates");
+  const [hoveredDate, setHoveredDate] = useState(null);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
 
   if (!data) {
-    return;
+    return null; // Return null or any other placeholder when data is not available
   }
 
   return (
@@ -24,13 +26,28 @@ export default function DateList() {
           never-before-heard stories.
         </h2>
       </div>
-      <ul className="flex">
-        {data.map((date) => (
-          <li key={date._id}>
-            <Link href={`/${date._id}`}>{date.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.calendar}>
+        <div className={styles.dateBox}>
+          {data.map((date) => (
+            <div
+              key={date._id}
+              className={styles.dateItem}
+              onMouseEnter={() => setHoveredDate(date)}
+              onMouseLeave={() => setHoveredDate(null)}
+            >
+              <Link className={styles.bt} href={`/${date._id}`}>
+                <p className={styles.week}>{date.year}</p>
+                <h2 className={styles.dateList}>{date.title}</h2>
+                <p className={styles.week}>Week {date.week}</p>
+              </Link>
+            </div>
+          ))}
+        </div>
+        <div className={styles.contentBox}>
+          {hoveredDate && <p>{hoveredDate.desc}</p>}
+          {hoveredDate && <p>{hoveredDate.title}</p>}
+        </div>
+      </div>
     </section>
   );
 }
