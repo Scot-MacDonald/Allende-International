@@ -26,6 +26,14 @@ export default function DateList() {
           never-before-heard stories.
         </h2>
       </div>
+      <ul className={styles.filters}>
+        <li className={styles.filter}>all</li>
+        <li className={styles.filter}>Years</li>
+        <li className={styles.filter}>1970</li>
+        <li className={styles.filter}>1971</li>
+        <li className={styles.filter}>1972</li>
+        <li className={styles.filter}>1973</li>
+      </ul>
       <div className={styles.calendar}>
         <div className={styles.dateBox}>
           {data.map((date) => (
@@ -44,8 +52,8 @@ export default function DateList() {
           ))}
         </div>
         <div className={styles.contentBox}>
-          {hoveredDate && <p>{hoveredDate.desc}</p>}
-          {hoveredDate && <p>{hoveredDate.title}</p>}
+          {hoveredDate && <p className="text-black">{hoveredDate.desc}</p>}
+          {hoveredDate && <p className="text-black">{hoveredDate.title}</p>}
         </div>
       </div>
     </section>

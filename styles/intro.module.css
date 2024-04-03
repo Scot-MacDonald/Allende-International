@@ -37,9 +37,14 @@
 
 .desc {
   font-size: 26px;
-  max-width: 1200px;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 10px;
-  margin: 300px auto;
+  position: absolute;
+  bottom: 0;
+}
+
+.text {
+  max-width: 1200px;
 }

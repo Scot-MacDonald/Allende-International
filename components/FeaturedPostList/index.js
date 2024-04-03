@@ -1,9 +1,15 @@
+import React from "react";
 import useSWR from "swr";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/postList.module.css";
 
-export default function PostList() {
+function getRandomPosts(posts, numPosts) {
+  const shuffled = posts.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, numPosts);
+}
+
+export default function FeaturedPostList() {
   const { data, isLoading } = useSWR("/api/posts");
 
   if (isLoading) {
@@ -11,23 +17,24 @@ export default function PostList() {
   }
 
   if (!data) {
-    return;
+    return null;
   }
+
+  const featuredPosts = getRandomPosts(data, 4);
 
   return (
     <>
       <section className={styles.section}>
         <div className={styles.section__details}>
-          <h2 className={styles.section__title}>Life journeys</h2>
+          <h2 className={styles.section__title}>Featured Life Journeys</h2>
           <h2 className={styles.section__description}>
-            Here we tell the stories of people from all over the world who lived
-            in Chile during Salvador Allende's reign. Discover well-known and
-            never-before-heard stories.
+            Here we showcase a selection of life journeys from around the world
+            during Salvador Allende's reign in Chile.
           </h2>
         </div>
 
         <div className="grid grid-cols-4 gap-4">
-          {data.map((post) => (
+          {featuredPosts.map((post) => (
             <Link key={post._id} href={`/posts/${post._id}`}>
               <div className={styles.container}>
                 <div className={styles.titleContainer}>
@@ -63,15 +70,6 @@ export default function PostList() {
                 </div>
                 <div className={styles.bottom}>
                   <p className={styles.description}>{post.desc}</p>
-                  {/* {post.main && (
-          <div className={styles.mainContent}>
-            {post.main.map((item, index) => (
-              <p key={index} className={styles.mainItem}>
-                {item}
-              </p>
-            ))}
-          </div>
-        )} */}
                 </div>
               </div>
             </Link>

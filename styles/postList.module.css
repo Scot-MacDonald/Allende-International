@@ -49,7 +49,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 90%;
+  width: 100%;
   height: 100%;
   background: url("/grids.png") repeat;
   z-index: 150; /* Ensure the overlay is on top of the image */
@@ -58,7 +58,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 90%;
+  width: 100%;
   height: 100%;
   background: url("/red.svg") repeat;
   z-index: 150; /* Ensure the overlay is on top of the image */
@@ -66,7 +66,7 @@
 }
 
 .imgContainer {
-  width: 90%;
+  width: 100%;
   height: 400px;
   position: relative;
 }
