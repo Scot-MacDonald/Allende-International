@@ -35,7 +35,6 @@ export default function HomePage() {
         {/* <PostForm onSubmit={handleSubmit} value="" /> */}
         <Intro />
         <FeaturedPostList />
-        <PostList />
         <ArbeitList />
         <EventList />
 

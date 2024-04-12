@@ -25,11 +25,13 @@ export default function FeaturedPostList() {
   return (
     <>
       <section className={styles.section}>
+        <div className={styles.section__top}></div>
         <div className={styles.section__details}>
           <h2 className={styles.section__title}>Featured Life Journeys</h2>
           <h2 className={styles.section__description}>
-            Here we showcase a selection of life journeys from around the world
-            during Salvador Allende's reign in Chile.
+            Here we tell the stories of people from all over the world who lived
+            in Chile during Salvador Allende's reign. Discover well-known and
+            never-before-heard stories.
           </h2>
         </div>
 

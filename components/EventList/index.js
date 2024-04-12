@@ -9,9 +9,8 @@ export default function EventList() {
       <div className={styles.section__details}>
         <h2 className={styles.section__title}>Events</h2>
         <h2 className={styles.section__description}>
-          Here we tell the stories of people from all over the world who lived
-          in Chile during Salvador Allende's reign. Discover well-known and
-          never-before-heard stories.
+          Here you can find the current program. Allendes Internationale also
+          takes place offline. Come to our lectures, exhibitions and meetings.
         </h2>
       </div>
       <div className="flex justify-center">

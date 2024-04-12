@@ -19,11 +19,11 @@ export default function DateList() {
   return (
     <section className={styles.section}>
       <div className={styles.section__details}>
-        <h2 className={styles.section__title}>Life journeys</h2>
+        <h2 className={styles.section__title}>1000 Days</h2>
         <h2 className={styles.section__description}>
-          Here we tell the stories of people from all over the world who lived
-          in Chile during Salvador Allende's reign. Discover well-known and
-          never-before-heard stories.
+          The timeline traces the development of democratic socialism from 1970
+          to 1973, placing important events in Chile in the context of global
+          news.
         </h2>
       </div>
       <ul className={styles.filters}>
@@ -52,8 +52,8 @@ export default function DateList() {
           ))}
         </div>
         <div className={styles.contentBox}>
+          {hoveredDate && <h2 className="text-black">{hoveredDate.title}</h2>}
           {hoveredDate && <p className="text-black">{hoveredDate.desc}</p>}
-          {hoveredDate && <p className="text-black">{hoveredDate.title}</p>}
         </div>
       </div>
     </section>

@@ -3,28 +3,29 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  gap: 50px;
+  margin-top: 116px;
   min-height: 100vh;
 }
 
 .section__details {
-  display: flex;
-  padding: 100px 0;
+  border-top: 1px dotted #e5e7eb;
 }
 
 .section__title {
-  font-size: 30px;
-  color: white;
-  line-height: 40px;
-  width: 20%;
+  font-size: 20px;
+  color: #fff;
+  line-height: 36px;
   font-weight: 400;
+  padding-top: 50px;
 }
 
 .section__description {
-  font-size: 30px;
-  color: white;
-  line-height: 40px;
+  font-size: 15px;
+  color: #5b5b5b;
+  line-height: 17px;
+
   font-weight: 400;
+  padding-bottom: 50px;
 }
 
 .filters {
@@ -34,8 +35,9 @@
 }
 .filter {
   padding: 4px 15px;
-  border: 1px solid #5b5b5b;
+  border: 1px solid #666;
   margin-right: 10px;
+  margin-bottom: 15px;
 }
 
 .calendar {
@@ -46,22 +48,22 @@
 }
 
 .dateBox {
-  border: 1px solid white;
+  border: 1px solid #666;
   max-height: 52vh;
   height: 52vh;
   overflow: scroll;
 }
 .dateItem {
   padding: 20px 10px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #666;
 }
 .contentBox {
   background-color: white;
   max-height: 52vh;
   height: 52vh;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  border-right: 1px solid white;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+  border-right: 1px solid #666;
 }
 .dateList {
   font-size: 20px;

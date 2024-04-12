@@ -17,11 +17,12 @@ export default function ArbeitList() {
   return (
     <section className={styles.section}>
       <div className={styles.section__details}>
-        <h2 className={styles.section__title}>Life journeys</h2>
+        <h2 className={styles.section__title}>This is how they worked</h2>
         <h2 className={styles.section__description}>
-          Here we tell the stories of people from all over the world who lived
-          in Chile during Salvador Allende's reign. Discover well-known and
-          never-before-heard stories.
+          What can we learn from socialism hecho en Chile?
+          <br /> Our series of articles explores the Chilean path to socialism
+          at 10 important "construction sites" of the Unidad Popular and shows
+          how internationalists took part.
         </h2>
       </div>
 
@@ -44,7 +45,6 @@ export default function ArbeitList() {
                 <h1 className={styles.title}>{arbeit.title}</h1>
               </div>
               <div className={styles.top}>
-                <span className={styles.date}>18-10-2024</span>
                 <div className={styles.imgContainer}>
                   {arbeit.img && (
                     <div className={styles.imgWrapper}>
@@ -60,9 +60,10 @@ export default function ArbeitList() {
                     </div>
                   )}
                 </div>
-                <span className={styles.date}>18-10-2024</span>
               </div>
-              <div className={styles.bottom}></div>
+              <div className={styles.bottom}>
+                <p className={styles.description}>Read More</p>
+              </div>
             </div>
           </Link>
         ))}
