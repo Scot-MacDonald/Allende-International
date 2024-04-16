@@ -23,9 +23,14 @@
   font-size: 15px;
   color: #5b5b5b;
   line-height: 17px;
-
   font-weight: 400;
   padding-bottom: 50px;
+}
+
+.title {
+  color: black;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .filters {
@@ -33,7 +38,9 @@
   margin: 0;
   padding: 0px;
 }
-.filter {
+
+.filter,
+.active {
   padding: 4px 15px;
   border: 1px solid #666;
   margin-right: 10px;
@@ -53,10 +60,12 @@
   height: 52vh;
   overflow: scroll;
 }
+
 .dateItem {
   padding: 20px 10px;
   border-bottom: 1px solid #666;
 }
+
 .contentBox {
   background-color: white;
   max-height: 52vh;
@@ -64,7 +73,9 @@
   border-top: 1px solid #666;
   border-bottom: 1px solid #666;
   border-right: 1px solid #666;
+  padding: 20px;
 }
+
 .dateList {
   font-size: 20px;
   color: white;

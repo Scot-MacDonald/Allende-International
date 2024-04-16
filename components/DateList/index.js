@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function DateList() {
   const { data, isLoading } = useSWR("/api/dates");
   const [hoveredDate, setHoveredDate] = useState(null);
+  const [selectedYear, setSelectedYear] = useState(null);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -16,6 +17,9 @@ export default function DateList() {
     return null; // Return null or any other placeholder when data is not available
   }
 
+  const filteredData = selectedYear
+    ? data.filter((date) => date.year === String(selectedYear))
+    : data;
   return (
     <section className={styles.section}>
       <div className={styles.section__details}>
@@ -27,16 +31,31 @@ export default function DateList() {
         </h2>
       </div>
       <ul className={styles.filters}>
-        <li className={styles.filter}>all</li>
-        <li className={styles.filter}>Years</li>
-        <li className={styles.filter}>1970</li>
-        <li className={styles.filter}>1971</li>
-        <li className={styles.filter}>1972</li>
-        <li className={styles.filter}>1973</li>
+        <li
+          className={selectedYear === null ? styles.active : styles.filter}
+          onClick={() => setSelectedYear(null)}
+        >
+          all
+        </li>
+        <li
+          className={selectedYear === null ? styles.filter : styles.filter}
+          onClick={() => setSelectedYear(null)}
+        >
+          Years
+        </li>
+        {[1970, 1971, 1972, 1973].map((year) => (
+          <li
+            key={year}
+            className={selectedYear === year ? styles.active : styles.filter}
+            onClick={() => setSelectedYear(year)}
+          >
+            {year}
+          </li>
+        ))}
       </ul>
       <div className={styles.calendar}>
         <div className={styles.dateBox}>
-          {data.map((date) => (
+          {filteredData.map((date) => (
             <div
               key={date._id}
               className={styles.dateItem}
@@ -52,7 +71,7 @@ export default function DateList() {
           ))}
         </div>
         <div className={styles.contentBox}>
-          {hoveredDate && <h2 className="text-black">{hoveredDate.title}</h2>}
+          {hoveredDate && <h2 className={styles.title}>{hoveredDate.title}</h2>}
           {hoveredDate && <p className="text-black">{hoveredDate.desc}</p>}
         </div>
       </div>
