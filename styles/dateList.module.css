@@ -28,9 +28,10 @@
 }
 
 .title {
-  color: black;
+  color: white;
   font-size: 20px;
   font-weight: 400;
+  padding: 50px 50px 15px 50px;
 }
 
 .filters {
@@ -67,7 +68,7 @@
 }
 
 .contentBox {
-  background-color: white;
+  background-color: #141414;
   max-height: 52vh;
   height: 52vh;
   border-top: 1px solid #666;
@@ -80,4 +81,8 @@
   font-size: 20px;
   color: white;
   font-weight: 400;
+}
+
+.white {
+  padding: 0 50px 15px 50px;
 }

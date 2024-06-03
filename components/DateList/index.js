@@ -62,7 +62,7 @@ export default function DateList() {
               onMouseEnter={() => setHoveredDate(date)}
               onMouseLeave={() => setHoveredDate(null)}
             >
-              <Link className={styles.bt} href={`/${date._id}`}>
+              <Link className={styles.bt} href={`/dates/${date._id}`}>
                 <p className={styles.week}>{date.year}</p>
                 <h2 className={styles.dateList}>{date.title}</h2>
                 <p className={styles.week}>Week {date.week}</p>
@@ -72,7 +72,16 @@ export default function DateList() {
         </div>
         <div className={styles.contentBox}>
           {hoveredDate && <h2 className={styles.title}>{hoveredDate.title}</h2>}
-          {hoveredDate && <p className="text-black">{hoveredDate.desc}</p>}
+          {/* {hoveredDate && <p className={styles.white}>{hoveredDate.desc}</p>} */}
+          {hoveredDate && hoveredDate.main && (
+            <div>
+              {hoveredDate.main.map((item, index) => (
+                <p className={styles.white} key={index}>
+                  {item}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -1,21 +1,22 @@
 import useSWR from "swr";
-import ArbeitList from "@/components/ArbeitList";
 
-export default function ArbeitPage() {
-  const { mutate } = useSWR("/api/arbeits");
+import WorkingList from "@/components/WorkingList";
+
+export default function WorkingPage() {
+  const { mutate } = useSWR("/api/workings");
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const arbeitData = Object.fromEntries(formData);
+    const workingData = Object.fromEntries(formData);
 
-    const response = await fetch("/api/arbeits", {
+    const response = await fetch("/api/workings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(arbeitData),
+      body: JSON.stringify(workingData),
     });
 
     if (response.ok) {
@@ -27,7 +28,7 @@ export default function ArbeitPage() {
     <>
       {/* <PostForm onSubmit={handleSubmit} value="" /> */}
       <div className="px-10 w-full">
-        <ArbeitList />
+        <WorkingList />
       </div>
     </>
   );

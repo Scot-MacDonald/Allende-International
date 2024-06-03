@@ -27,6 +27,20 @@ export default function FeaturedPostList() {
       <section className={styles.section}>
         <div className={styles.section__top}></div>
         <div className={styles.section__details}>
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              className={styles.hexagon}
+            >
+              <polygon
+                points="50 1.95 97.5 25 97.5 75 50 98.05 2.5 75 2.5 25 50 1.95"
+                fill="white"
+                stroke="white"
+                stroke-width="6px"
+              />
+            </svg>
+          </div>
           <h2 className={styles.section__title}>Featured Life Journeys</h2>
           <h2 className={styles.section__description}>
             Here we tell the stories of people from all over the world who lived
@@ -35,7 +49,7 @@ export default function FeaturedPostList() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4">
           {featuredPosts.map((post) => (
             <Link key={post._id} href={`/posts/${post._id}`}>
               <div className={styles.container}>
@@ -47,8 +61,9 @@ export default function FeaturedPostList() {
                   >
                     <polygon
                       points="50 1.95 97.5 25 97.5 75 50 98.05 2.5 75 2.5 25 50 1.95"
-                      fill="white"
+                      fill="null"
                       stroke="white"
+                      stroke-width="8px"
                     />
                   </svg>
                   <h1 className={styles.title}>{post.title}</h1>
@@ -72,11 +87,32 @@ export default function FeaturedPostList() {
                 </div>
                 <div className={styles.bottom}>
                   <p className={styles.description}>{post.desc}</p>
+                  {/* {post.main && (
+                    <div className={styles.mainContent}>
+                      {post.main.map((item, index) => (
+                        <p key={index} className={styles.mainItem}>
+                          {item}
+                        </p>
+                      ))}
+                    </div>
+                  )} */}
                 </div>
               </div>
             </Link>
           ))}
         </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 100 100"
+          className={styles.hexagon}
+        >
+          <polygon
+            points="50 1.95 97.5 25 97.5 75 50 98.05 2.5 75 2.5 25 50 1.95"
+            fill="null"
+            stroke="white"
+            stroke-width="8px"
+          />
+        </svg>
       </section>
     </>
   );

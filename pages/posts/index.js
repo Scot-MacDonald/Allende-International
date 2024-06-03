@@ -27,7 +27,9 @@ export default function HomePage() {
   return (
     <>
       {/* <PostForm onSubmit={handleSubmit} value="" /> */}
-      <PostList />
+      <div className="px-10 w-full">
+        <PostList />
+      </div>
     </>
   );
 }

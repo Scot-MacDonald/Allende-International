@@ -1,29 +1,29 @@
 import useSWR from "swr";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import DateForm from "@/components/DateForm";
+import EventForm from "../EventForm ";
 import Link from "next/link";
 import styles from "@/styles/postSingle.module.css";
 
-export default function Date() {
+export default function Event() {
   const [isEditMode, setIsEditMode] = useState(false);
   const router = useRouter();
   const { id } = router.query;
 
-  const { data, isLoading, mutate } = useSWR(`/api/dates/${id}`);
+  const { data, isLoading, mutate } = useSWR(`/api/events/${id}`);
 
   async function handleEdit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const dateData = Object.fromEntries(formData);
+    const eventData = Object.fromEntries(formData);
 
-    const response = await fetch(`/api/dates/${id}`, {
+    const response = await fetch(`/api/events/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(dateData),
+      body: JSON.stringify(eventData),
     });
 
     if (response.ok) {
@@ -32,7 +32,7 @@ export default function Date() {
   }
 
   async function handleDelete() {
-    const response = await fetch(`/api/dates/${id}`, { method: "DELETE" });
+    const response = await fetch(`/api/events/${id}`, { method: "DELETE" });
 
     if (!response.ok) {
       console.log(response.status);

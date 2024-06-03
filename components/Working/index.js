@@ -1,30 +1,31 @@
 import useSWR from "swr";
+import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import PostForm from "@/components/PostForm";
+import WorkingForm from "@/components/WorkingForm";
 import Link from "next/link";
-import styles from "@/styles/postSingle.module.css";
-import Image from "next/image";
+import styles from "@/styles/workingSingle.module.css";
+import ScrollImageLayout from "@/components/ScrollImageLayout";
 
-export default function Post() {
+export default function Working() {
   const [isEditMode, setIsEditMode] = useState(false);
   const router = useRouter();
   const { id } = router.query;
 
-  const { data, isLoading, mutate } = useSWR(`/api/posts/${id}`);
+  const { data, isLoading, mutate } = useSWR(`/api/workings/${id}`);
 
   async function handleEdit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const postData = Object.fromEntries(formData);
+    const workingData = Object.fromEntries(formData);
 
-    const response = await fetch(`/api/posts/${id}`, {
+    const response = await fetch(`/api/workings/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(postData),
+      body: JSON.stringify(workingData),
     });
 
     if (response.ok) {
@@ -33,7 +34,7 @@ export default function Post() {
   }
 
   async function handleDelete() {
-    const response = await fetch(`/api/posts/${id}`, { method: "DELETE" });
+    const response = await fetch(`/api/workings/${id}`, { method: "DELETE" });
 
     if (!response.ok) {
       console.log(response.status);
@@ -50,6 +51,35 @@ export default function Post() {
   if (!data) return;
 
   return (
+    // <>
+    //   <small>ID: {id}</small>
+    //   <h1>{data.title} </h1>
+    //   <div>
+    //     <button
+    //       onClick={() => {
+    //         setIsEditMode(!isEditMode);
+    //       }}
+    //     >
+    //       <span role="img" aria-label="A pencil">
+    //         ✏️
+    //       </span>
+    //     </button>
+    //     <button onClick={handleDelete} disabled={isEditMode}>
+    //       <span role="img" aria-label="A cross indicating deletion">
+    //         ❌
+    //       </span>
+    //     </button>
+    //   </div>
+    //   {isEditMode && (
+    //     <WorkingForm
+    //       onSubmit={handleEdit}
+    //       value={data.title}
+    //       isEditMode={true}
+    //     />
+    //   )}
+
+    //   <Link href="/">Back to all</Link>
+    // </>
     <>
       <section className={styles.section}>
         <div className={styles.section__details}>
@@ -120,10 +150,13 @@ export default function Post() {
                 isEditMode={true}
               />
             )}
-            <Link href="/">Back to all</Link>
+            
           </div> */}
+
+          <Link href="/workings">Back to all</Link>
         </div>
       </section>
+      <ScrollImageLayout />
     </>
   );
 }

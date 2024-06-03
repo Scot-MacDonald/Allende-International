@@ -1,21 +1,21 @@
 import useSWR from "swr";
-import ArbeitList from "@/components/ArbeitList";
+import EventList from "@/components/EventList";
 
-export default function ArbeitPage() {
-  const { mutate } = useSWR("/api/arbeits");
+export default function EventPage() {
+  const { mutate } = useSWR("/api/events");
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const arbeitData = Object.fromEntries(formData);
+    const eventData = Object.fromEntries(formData);
 
-    const response = await fetch("/api/arbeits", {
+    const response = await fetch("/api/events", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(arbeitData),
+      body: JSON.stringify(eventData),
     });
 
     if (response.ok) {
@@ -27,7 +27,7 @@ export default function ArbeitPage() {
     <>
       {/* <PostForm onSubmit={handleSubmit} value="" /> */}
       <div className="px-10 w-full">
-        <ArbeitList />
+        <EventList />
       </div>
     </>
   );

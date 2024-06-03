@@ -74,7 +74,15 @@ export default function Arbeit() {
           isEditMode={true}
         />
       )}
-      <Link href="/">Back to all</Link>
+      hhh
+      <Link
+        href="/"
+        onClick={(e) => {
+          e.preventDefault();
+        }}
+      >
+        Back to all
+      </Link>
     </>
   );
 }

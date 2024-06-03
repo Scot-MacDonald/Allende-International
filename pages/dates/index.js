@@ -26,8 +26,9 @@ export default function DatePage() {
   return (
     <>
       {/* <PostForm onSubmit={handleSubmit} value="" /> */}
-      <h1>hello</h1>
-      <DateList />
+      <div className="px-10 w-full">
+        <DateList />
+      </div>
     </>
   );
 }
